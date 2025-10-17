@@ -2,14 +2,6 @@ package livraison;
 
 public class FoodFastUtils {
 
-    // **a) Planificateur de livraison (FizzBuzz) :** Créez une méthode `static
-    // // String deliveryPlanner(int n)` qui retourne "Fizz" pour les multiples de
-    // 3,
-    // // "Buzz" pour les multiples de 5, et "FizzBuzz" pour les multiples des deux.
-    // // Cet "algorithme" nous aidera à planifier nos lots de livraison. **Écrivez
-    // les
-    // tests JUnit avant d'écrire le code (TDD).**
-
     public static String deliveryPlanner(int n) {
         if (n % 3 == 0 && n % 5 == 0) {
             return "fizzbuzz";
@@ -19,6 +11,22 @@ public class FoodFastUtils {
             return "buzz";
         } else
             return "";
+    }
+
+    public static boolean isLeapYear(int year) {
+        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+    }
+
+    public static int sumUpTo(int n) {
+        int res = 0;
+        for (int i = 1; i < n; i++) {
+            res += i;
+        }
+        return res;
+    }
+
+    public static String anonymize(String text) {
+        return new StringBuilder(text).reverse().toString();
     }
 
 }
