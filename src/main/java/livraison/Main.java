@@ -15,12 +15,6 @@ public class Main {
 
 // ### Question 4 : "Le Cœur du Système : Les Objets Métier"
 
-// Modélisez les objets principaux de FoodFast. **Pour chaque classe,
-// implémentez un constructeur, `equals()`, `hashCode()` et `toString()`, et
-// écrivez les tests JUnit associés.**
-
-// 1. **`enum DishSize { SMALL, MEDIUM, LARGE }`**
-// 2. **`class Dish`** : `String name`, `BigDecimal price`, `DishSize size`.
 // 3. **`class Customer`** : `String id`, `String name`, `String address`.
 // 4. **`enum OrderStatus { PENDING, IN_PREPARATION, COMPLETED, CANCELLED }`**
 // 5. **`class Order`** :
