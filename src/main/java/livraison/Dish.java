@@ -1,23 +1,25 @@
 package livraison;
 
+import java.math.BigDecimal;
+
 public class Dish {
 
     private String name;
-    private double price;
+    private BigDecimal price;
     private DishSize dishSize;
 
-    public Dish(String name, double price, DishSize dishSize) {
+    public Dish(String name, BigDecimal price, DishSize dishSize) {
         this.name = name;
         this.price = price;
         this.dishSize = dishSize;
     }
 
     public Dish(String name, DishSize dishSize) {
-        this(name, 12, dishSize);
+        this(name, new BigDecimal("12"), dishSize);
     }
 
     public Dish() {
-        this("default", 12, DishSize.MEDIUM);
+        this("default", new BigDecimal("12"), DishSize.MEDIUM);
     }
 
     public String getName() {
@@ -28,11 +30,11 @@ public class Dish {
         this.name = name;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -48,6 +50,40 @@ public class Dish {
     public String toString() {
         return "Dish [name=" + name + ", price=" + price + ", dishSize=" + dishSize +
                 "]";
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + ((price == null) ? 0 : price.hashCode());
+        result = prime * result + ((dishSize == null) ? 0 : dishSize.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Dish other = (Dish) obj;
+        if (name == null) {
+            if (other.name != null)
+                return false;
+        } else if (!name.equals(other.name))
+            return false;
+        if (price == null) {
+            if (other.price != null)
+                return false;
+        } else if (!price.equals(other.price))
+            return false;
+        if (dishSize != other.dishSize)
+            return false;
+        return true;
     }
 
 }

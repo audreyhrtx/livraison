@@ -1,8 +1,10 @@
 package livraison;
 
+import java.math.BigDecimal;
+
 public class Main {
     public static void main(String[] args) {
-        Dish dish = new Dish("test", 15, DishSize.LARGE);
+        Dish dish = new Dish("test", new BigDecimal(15), DishSize.LARGE);
         System.out.println(dish);
     }
 }
@@ -10,11 +12,6 @@ public class Main {
 // ##Partie 2:
 
 // Modélisation Orientée
-
-// Objet (Séance 2)
-
-// *Objectif : Appliquer les principes de la POO pour construire le cœur du
-// système.*
 
 // ### Question 4 : "Le Cœur du Système : Les Objets Métier"
 
