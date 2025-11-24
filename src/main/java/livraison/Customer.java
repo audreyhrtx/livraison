@@ -2,25 +2,20 @@ package livraison;
 
 import java.util.UUID;
 
-// // 3. **`class Customer`** : `String id`, `String name`, `String address`.
 public class Customer {
 
-    private UUID id;
+    private String id;
     private String name;
     private String adress;
 
     public Customer(String name, String adress) {
-        this.id = UUID.randomUUID();
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.adress = adress;
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     public String getName() {
