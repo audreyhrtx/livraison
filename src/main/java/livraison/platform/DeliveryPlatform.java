@@ -15,7 +15,7 @@ public class DeliveryPlatform {
     Map<String, Order> orders = new HashMap<>();
     int cpt = 0;
 
-    void placeOrder(Order order) {
+    public void placeOrder(Order order) {
         cpt++;
         orders.put("Commande" + cpt, order);
         Restaurant restaurant = new Restaurant();

@@ -8,7 +8,7 @@ import livraison.model.Customer;
 import livraison.model.Dish;
 import livraison.model.DishSize;
 import livraison.order.Order;
-import livraison.order.OrderStatus;
+import livraison.platform.DeliveryPlatform;
 
 public class Main {
     public static void main(String[] args) {

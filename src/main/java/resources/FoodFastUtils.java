@@ -1,4 +1,4 @@
-package livraison;
+package resources;
 
 public class FoodFastUtils {
 
