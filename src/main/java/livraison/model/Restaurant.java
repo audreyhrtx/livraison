@@ -15,8 +15,6 @@ public class Restaurant {
         this("restaurant");
     }
 
-    // `prepare(Order order)` qui simule une préparation.
-    // VERIF
     public void prepare(Order order) throws OrderPreparationException {
         int r = (int) (Math.random() * 100);
         if (r <= 20)

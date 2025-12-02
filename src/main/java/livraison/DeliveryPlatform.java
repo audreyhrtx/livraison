@@ -1,17 +1,18 @@
 package livraison;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 import livraison.model.Restaurant;
-import livraison.order.Customer;
+import livraison.model.Customer;
 import livraison.order.Order;
 import livraison.order.OrderStatus;
 
 public class DeliveryPlatform {
 
-    Map<String, Order> orders;
+    Map<String, Order> orders = new HashMap<>();
     int cpt = 0;
 
     void placeOrder(Order order) {

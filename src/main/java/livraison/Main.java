@@ -1,57 +1,71 @@
 package livraison;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 
+import livraison.model.Customer;
 import livraison.model.Dish;
 import livraison.model.DishSize;
+import livraison.order.Order;
+import livraison.order.OrderStatus;
 
 public class Main {
     public static void main(String[] args) {
-        Dish dish = new Dish("test", new BigDecimal(15), DishSize.LARGE);
-        System.out.println(dish);
+        System.out.println("=== CRÉATION DES OBJETS FOODFAST ===\n");
+
+        // Création des plats
+        System.out.println("--- PLATS ---");
+        Dish pizza = new Dish("Pizza Margherita", new BigDecimal("15.50"), DishSize.LARGE);
+        Dish burger = new Dish("Burger Deluxe", new BigDecimal("12.00"), DishSize.MEDIUM);
+        Dish salade = new Dish("Salade César", new BigDecimal("8.50"), DishSize.SMALL);
+
+        System.out.println(pizza);
+        System.out.println(burger);
+        System.out.println(salade);
+
+        // Création des clients
+        System.out.println("\n--- CLIENTS ---");
+        Customer client1 = new Customer("Jean Dupont", "123 Rue de la Paix, Paris");
+        Customer client2 = new Customer("Marie Martin", "456 Avenue des Fleurs, Lyon");
+
+        System.out.println(client1);
+        System.out.println(client2);
+
+        // Création d'une commande
+        System.out.println("\n--- COMMANDE ---");
+        Map<Dish, Integer> platsCommande = new HashMap<>();
+        platsCommande.put(pizza, 2); // 2 pizzas
+        platsCommande.put(burger, 1); // 1 burger
+        platsCommande.put(salade, 3); // 3 salades
+
+        Order commande = new Order(platsCommande, client1);
+
+        System.out.println("ID: " + commande.getId());
+        System.out.println("Client: " + commande.getCustomer().getName());
+        System.out.println("Statut: " + commande.getStatus());
+        System.out.println("Date: " + commande.getOrderDate());
+        System.out.println("Prix total: " + commande.calculateTotalPrice() + "€");
+
+        System.out.println("\nDétail des plats:");
+        for (Map.Entry<Dish, Integer> entry : commande.getDishes().entrySet()) {
+            System.out.println("- " + entry.getValue() + "x " + entry.getKey().getName() +
+                    " (" + entry.getKey().getPrice() + "€ chacun)");
+        }
+
+        // Création de la plateforme
+        System.out.println("\n--- PLATEFORME ---");
+        DeliveryPlatform platform = new DeliveryPlatform();
+
+        // Passage de la commande
+        System.out.println("Passage de la commande sur la plateforme...");
+        platform.placeOrder(commande);
+
+        System.out.println("Statut après passage: " + commande.getStatus());
+
+        System.out.println("\n=== OBJETS CRÉÉS AVEC SUCCÈS ===");
     }
 }
-
-// ### Question 5 : "La Plateforme de Livraison"
-
-// 1. Créez la classe `DeliveryPlatform`.
-// 2. Donnez-lui une `Map<String, Order>` pour stocker les commandes en cours.
-// 3. Implémentez les méthodes suivantes :
-// * `void placeOrder(Order order)`
-// * `Optional<Order> findOrderById(String orderId)`
-
-// *Concepts-clés : `List`, `Map`, `Optional`.*
-
-// ---
-
-// ## Partie 3 : Logique Applicative et Robustesse (Séance 3)
-
-// *Objectif : Manipuler des collections avec des fonctionnalités modernes de
-// Java et rendre l'application robuste.*
-
-// ### Question 6 : "Recherche Avancée de Commandes"
-
-// Dans `DeliveryPlatform`, ajoutez les méthodes de recherche suivantes en
-// utilisant **l'API Stream et des lambdas**.
-
-// 1. `List<Order> findOrdersByCustomer(Customer customer)`
-// 2. `List<Order> findOrdersByStatus(OrderStatus status)`
-
-// *Concepts-clés : API Stream, `filter`, `collect`, Lambdas, `Predicate`.*
-
-// ### Question 7 : "Gestion des Erreurs de Préparation"
-
-// 1. Créez une exception personnalisée `OrderPreparationException`.
-// 2. Dans une classe `Restaurant`, créez une méthode `prepare(Order order)` qui
-// simule une préparation. Cette méthode aura 20% de chances de lancer votre
-// `OrderPreparationException`.
-// 3. Dans `DeliveryPlatform`, lors de l'ajout d'une commande, appelez cette
-// méthode et utilisez un bloc `try-catch` pour gérer l'erreur (par exemple, en
-// passant la commande au statut `CANCELLED` et en affichant un message).
-
-// *Concepts-clés : Exceptions, `try-catch-finally`, exceptions personnalisées.*
-
-// ---
 
 // ## Partie 4 : Concurrence et Persistance (Séance 4)
 
