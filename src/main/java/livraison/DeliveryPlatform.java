@@ -43,8 +43,4 @@ public class DeliveryPlatform {
                 .toList();
     }
 
-    // Dans `DeliveryPlatform`, lors de l'ajout d'une commande, appelez cette
-    // méthode et utilisez un bloc `try-catch` pour gérer l'erreur (par exemple, en
-    // passant la commande au statut `CANCELLED` et en affichant un message).
-
 }

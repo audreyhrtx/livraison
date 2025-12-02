@@ -1,5 +1,6 @@
 package livraison.platform;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -11,7 +12,7 @@ import livraison.order.OrderStatus;
 
 public class DeliveryPlatform {
 
-    Map<String, Order> orders;
+    Map<String, Order> orders = new HashMap<>();
     int cpt = 0;
 
     void placeOrder(Order order) {

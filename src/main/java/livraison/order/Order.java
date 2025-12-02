@@ -3,23 +3,28 @@ package livraison.order;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Map;
+import java.util.UUID;
 
 import livraison.model.Customer;
 import livraison.model.Dish;
 
-// * Ajoutez une méthode `BigDecimal calculateTotalPrice()`.
-
 public class Order {
+    private UUID id;
     private OrderStatus status;
     private Map<Dish, Integer> dishes;
     private Customer customer;
     private LocalDateTime orderDate;
 
     public Order(Map<Dish, Integer> dishes, Customer customer) {
+        this.id = UUID.randomUUID();
         this.status = OrderStatus.PENDING;
         this.dishes = dishes;
         this.customer = customer;
         this.orderDate = LocalDateTime.now();
+    }
+
+    public UUID getId() {
+        return id;
     }
 
     public OrderStatus getStatus() {
@@ -63,6 +68,12 @@ public class Order {
             }
         }
         return res;
+    }
+
+    @Override
+    public String toString() {
+        return "Order [id=" + id + ", status=" + status + ", dishes=" + dishes + ", customer=" + customer
+                + ", orderDate=" + orderDate + "]";
     }
 
 }
