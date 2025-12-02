@@ -1,4 +1,7 @@
-package livraison;
+package livraison.model;
+
+import livraison.order.Order;
+import livraison.order.OrderPreparationException;
 
 public class Restaurant {
 

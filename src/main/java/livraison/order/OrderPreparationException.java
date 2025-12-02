@@ -1,4 +1,4 @@
-package livraison;
+package livraison.order;
 
 public class OrderPreparationException extends Exception {
 

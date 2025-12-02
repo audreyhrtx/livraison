@@ -1,11 +1,13 @@
-package livraison;
+package livraison.platform;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import livraison.order.Customer;
+import livraison.model.Customer;
+import livraison.model.Restaurant;
 import livraison.order.Order;
+import livraison.order.OrderStatus;
 
 public class DeliveryPlatform {
 
@@ -19,7 +21,7 @@ public class DeliveryPlatform {
         try {
             restaurant.prepare(order);
         } catch (Exception e) {
-            order.status = OrderStatus.CANCELLED;
+            order.setStatus(OrderStatus.CANCELLED);
             System.out.println(e.getMessage());
         }
 
@@ -31,13 +33,13 @@ public class DeliveryPlatform {
 
     List<Order> findOrdersByCustomer(Customer customer) {
         return orders.values().stream()
-                .filter(order -> order.customer.equals(customer))
+                .filter(order -> order.getCustomer().equals(customer))
                 .toList();
     }
 
     List<Order> findOrdersByStatus(OrderStatus status) {
         return orders.values().stream()
-                .filter(order -> order.status.equals(status))
+                .filter(order -> order.getStatus().equals(status))
                 .toList();
     }
 

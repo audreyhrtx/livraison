@@ -2,6 +2,9 @@ package livraison;
 
 import java.math.BigDecimal;
 
+import livraison.model.Dish;
+import livraison.model.DishSize;
+
 public class Main {
     public static void main(String[] args) {
         Dish dish = new Dish("test", new BigDecimal(15), DishSize.LARGE);

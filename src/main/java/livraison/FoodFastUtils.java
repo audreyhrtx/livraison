@@ -29,4 +29,9 @@ public class FoodFastUtils {
         return new StringBuilder(text).reverse().toString();
     }
 
+    public static void main(String[] args) {
+        String all = args.length > 0 ? String.join(" ", args) : "";
+        System.out.println("Bienvenue chez FoodFast ! " + all);
+    }
+
 }

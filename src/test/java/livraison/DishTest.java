@@ -2,6 +2,9 @@ package livraison;
 
 import org.junit.jupiter.api.Test;
 
+import livraison.model.Dish;
+import livraison.model.DishSize;
+
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
 

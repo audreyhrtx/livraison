@@ -1,4 +1,4 @@
-package livraison;
+package livraison.model;
 
 public enum DishSize {
 
